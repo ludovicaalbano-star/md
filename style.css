@@ -1,7 +1,7 @@
 body {
     font-size: 20px;
     color: rgba(0, 0, 0, 0.631);
-    background-color: bisque
+    background-color: hsla(202, 100%, 82%, 0.805)
 }
 
 #page {
@@ -13,15 +13,15 @@ body {
 }
 
 #about-me {
-    background-color: hsla(37, 78%, 62%, 0.805)
+    background-color: hsla(202, 100%, 65%, 0.805)
 }
 
 #work {
-    background-color: hsla(42, 81%, 67%, 0.818);
+    background-color: hsla(202, 100%, 65%, 0.805)
 }
 
 #contatti {
-    background-color: hsl(41, 78%, 61%)
+    background-color: hsla(202, 100%, 65%, 0.805)
 }
 
 .section {
