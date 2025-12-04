@@ -1,65 +1,38 @@
+html {
+    font-size: 16px; /* 16px = 1rem */
+}
+
 body {
-    font-size: 20px;
-    color: rgba(0, 0, 0, 0.631);
-    background-color: hsla(202, 100%, 82%, 0.805)
+    padding: 1rem;
 }
 
-#page {
-    width: 90%;
-    margin-top: 20%;
-    margin-bottom: 0%;
-    margin-left: auto;
-    margin-right: auto;
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
-#about-me {
-    background-color: hsla(202, 100%, 65%, 0.805)
-}
-
-#work {
-    background-color: hsla(202, 100%, 65%, 0.805)
-}
-
-#contatti {
-    background-color: hsla(202, 100%, 65%, 0.805)
-}
-
-.section {
-    padding: 16px;
-    padding: 16px 16px;
-    padding: 16px 16px 16px 16px;
-}
-
-.gallery {
+.menu {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
 }
 
-/* X-Small devices (portrait phones, less than 576px)
-// No media query for xs since this is the default in Bootstrap */
-
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {}
-
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {}
-
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    .gallery {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .gallery figure {
-        width: 30%;
-    }
+li {
+    font-size: 1.5rem;
 }
 
-/* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {}
+/* link a riposo */
+a, a:link {
+    color: red;
+}
+/* link visitato*/
+a:visited {
+    color:pink;
+}
+/* cursore su link */
+a:hover, a:focus {
+    color: red;
+}
+/* link premuti */
+a:active {
+    color: red;
+}
