@@ -184,7 +184,33 @@ No media query for `xs` since this is the default in Bootstrap */
     html {
         font-size: 24px;
     }
- }
+   
+    .img {
+    background-position: center;
+}
+    .Titolo{
+    font-size: 5.8em;
+    margin-top: -3rem;
+}
+
+.text{
+    font-size: 1.5rem;
+    margin-top: -6rem;
+    margin-left: 1.3rem;
+}
+
+.textdx{
+    font-size: 1.5rem;
+    margin-top: -9rem;
+    margin-right: 1rem;
+}
+
+.album{
+    font-size: 3.5rem;
+    letter-spacing: 7.14rem;
+    margin-top: -1.5rem;
+    position: center;
+}
 
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {  }

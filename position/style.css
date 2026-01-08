@@ -1,0 +1,111 @@
+html {
+    font-size: 16px; 
+}
+
+#page {
+    width: 100vw;
+    height: 100dvh;
+    background-color: #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.shape {
+    aspect-ratio: 1/1;
+    color: #fff;
+    background-color: hsla(0, 0%, 20%, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.square-1 {
+    width: 100px;
+    background-color: hsla(0, 100%, 50%, 0.5);
+}
+
+.square-2 {
+    width: 150px;
+    background-color: ;
+}
+
+.square-3 {
+    width: ;
+    background-color: ;
+}
+
+.circle-1 {
+    width: ;
+    background-color: ;
+    border-radius: 50%;
+}
+
+.circle-2 {
+    width: ;
+    background-color: ;
+    border-radius: ;
+}
+
+.circle-3 {
+    width: 250px;
+    border-radius: 50%;
+    background-color: hsla(150, 100%, 50%, 0.5);
+}
+
+.pos-a1 {
+    position: absolute;
+    top: 20px;
+    left: 20;
+    z-index: 5;
+}
+
+.pos-a2 {
+    position: absolute;
+    top: -20px;
+    left: 20;
+    z-index: 4;
+}
+
+.pos-a3 {
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    z-index: 3;
+}
+
+.pos-a4 {
+    position: fixed;
+    top: -20;
+    right: -20px;
+    z-index: 2;
+}
+
+file
+
+#page-extra{
+    width: 100;
+}
+
+.rect-1 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.rect-2 {
+    width: 300px;
+    height: 200px;
+    background-color: green;
+    position: relative;
+}
+
+.rect-3 {
+    width: 300px;
+    height: 200px;
+    background-color: black;
+    pos
+}
