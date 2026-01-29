@@ -97,7 +97,7 @@ html, body {
 /* POSIZIONAMENTI - GRUPPO INFERIORE */
 .img5 { /* coppia a sinistra */
     position: absolute;
-    top: 25%;      /* relativo al bordo superiore del gruppo */
+    top: 25%;
     left: -5%;
 }
 
@@ -117,7 +117,7 @@ html, body {
 /* IMMAGINI ANIMATE */
 .img5, .img6, .img7 {
     position: absolute;
-    transform-origin: 50% 50%;
+    transform-origin: 50%;
     animation: moveRotate 1s ease-out infinite alternate;
 }
 
@@ -139,14 +139,13 @@ html, body {
     .group-bottom { width: 70vw; }
     
     /* ridimensionamento immagini sovrapposte */
-    .img-overlay { width: 25%; } /* proporzionato per mobile */
+    .img-overlay { width: 25%; }
     
     /* Gruppo centrale */
     .img3 { width: 20%; }
     .img4 { width: 40%; }
 
     /* Gruppo inferiore: mantenere posizioni desktop */
-    /* Non cambiamo top/left/right, solo ridimensioniamo */
     .img5 { width: 25%; }
     .img6 { width: 25%; }
     .img7 { width: 25%; }
