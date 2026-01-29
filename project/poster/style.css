@@ -1,0 +1,105 @@
+/* LAYOUT BASE */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* SFONDO */
+.bg-image {
+    background-image: url('images/kebab1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* TITOLO PRINCIPALE - MAHMOOD AL TOP E CENTRATO */
+.title {
+    position: absolute;
+    top: 0;                  
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 10vw;         
+    font-weight: 900;
+    color: #CF1A1C;
+    text-transform: uppercase;
+    letter-spacing: 0.5vw;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* TESTO CENTRALE - N•L   D•A PIU' IN ALTO */
+.center-text {
+    position: absolute;
+    top: 18vh;               /* più in alto rispetto al 35vh precedente */
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    text-align: center;
+    font-size: 6vw;
+    font-weight: 100;
+    color: #CF1A1C;
+    letter-spacing: 2vw;
+}
+
+/* TESTI LATERALI */
+.left-text {
+    position: absolute;
+    top: 15vh;               /* leggermente più in alto */
+    left: 2vw;
+    font-size: 1.8vw;
+    color: #75160F;
+    text-align: left;
+}
+
+.right-text {
+    position: absolute;
+    top: 15vh;
+    right: 2vw;
+    font-size: 1.8vw;
+    color: #75160F;
+    text-align: right;
+}
+
+/* MEDIA QUERY DESKTOP 1440x1024 */
+@media (min-width: 1200px) {
+    .title {
+        font-size: 8rem;
+        letter-spacing: 1rem;
+    }
+    .center-text {
+        font-size: 5rem;
+        letter-spacing: 6rem;
+        top: 30vh;          /* desktop proporzionato */
+    }
+    .left-text,
+    .right-text {
+        font-size: 1.5rem;
+        top: 25vh;
+    }
+}
+
+/* MEDIA QUERY MOBILE 375x667 */
+@media (max-width: 767px) {
+    .title {
+        font-size: 16vw;
+        letter-spacing: 0.2vw;
+        top: 0;
+    }
+    .center-text {
+        font-size: 8vw;
+        letter-spacing: 0.5vw;
+        top: 12vh;          /* più in alto su mobile */
+    }
+    .left-text,
+    .right-text {
+        font-size: 3.5vw;
+        top: 10vh;
+    }
+}

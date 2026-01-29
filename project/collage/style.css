@@ -1,0 +1,153 @@
+/* BASE LAYOUT */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* SFONDO */
+.bg-image {
+    background-image: url('images/1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* GRUPPO CENTRALE */
+.group-center {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20vw;  /* dimensione gruppo */
+    height: auto;
+}
+
+/* GRUPPO INFERIORE */
+.group-bottom {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    width: 37vw;
+    height: auto;
+    transform: translateX(-50%);
+}
+
+/* IMMAGINI PRINCIPALI */
+.img-main {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* IMMAGINI SOVRAPPOSTE */
+.img-overlay {
+    position: absolute;
+    width: 15%;
+    height: auto;
+}
+
+/* POSIZIONAMENTI - GRUPPO CENTRALE */
+.img3 { /* stelle destra */
+    top: 0;
+    width: 25%;
+    right: 0;
+    animation-name: stretchImg;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.img4 { /* stelle sinistra */
+    bottom: 0;
+    width: 35%;
+    left: 0;
+    animation-name: stretchImg;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+/* ANIMAZIONE */
+@keyframes stretchImg {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+/* POSIZIONAMENTI - GRUPPO INFERIORE */
+.img5 { /* coppia a sinistra */
+    position: absolute;
+    top: 25%;      /* relativo al bordo superiore del gruppo */
+    left: -5%;
+}
+
+.img6 { /* coppia a destra */
+    position: absolute;
+    top: -65%;
+    left: 85%;
+    transform: translateX(-50%);
+}
+
+.img7 { /* coppia al centro */
+    position: absolute;
+    top: -33%;
+    right: 20%;
+}
+
+/* IMMAGINI ANIMATE */
+.img5, .img6, .img7 {
+    position: absolute;
+    transform-origin: 50% 50%;
+    animation: moveRotate 1s ease-out infinite alternate;
+}
+
+/* Posizioni interne corrette */
+.img5 { top: 0px; left: 0px; }
+.img6 { top: 0px; left: 150px; }
+.img7 { top: 0px; left: 75px; }
+
+/* ANIMAZIONE */
+@keyframes moveRotate {
+    0% { transform: translateX(0px) rotate(0deg); }
+    50% { transform: translateX(50px) rotate(10deg); }
+    100% { transform: translateX(100px) rotate(15deg); }
+}
+
+/* MEDIA QUERY MOBILE */
+@media (max-width: 767px) {
+    .group-center { width: 60vw; }
+    .group-bottom { width: 70vw; }
+    
+    /* ridimensionamento immagini sovrapposte */
+    .img-overlay { width: 25%; } /* proporzionato per mobile */
+    
+    /* Gruppo centrale */
+    .img3 { width: 20%; }
+    .img4 { width: 40%; }
+
+    /* Gruppo inferiore: mantenere posizioni desktop */
+    /* Non cambiamo top/left/right, solo ridimensioniamo */
+    .img5 { width: 25%; }
+    .img6 { width: 25%; }
+    .img7 { width: 25%; }
+}                                                            

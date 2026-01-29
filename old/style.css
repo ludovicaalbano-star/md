@@ -1,0 +1,39 @@
+html {
+    font-size: 16px; /* 16px = 1rem */
+}
+
+body {
+    padding: 1rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu {
+    display: flex;
+}
+
+li {
+    font-size: 1.5rem;
+}
+
+/* link a riposo */
+a, a:link {
+    color: red;
+}
+/* link visitato*/
+a:visited {
+    color:pink;
+}
+/* cursore su link */
+a:hover, a:focus {
+    color: red;
+}
+/* link premuti */
+a:active {
+    color: red;
+}
+  
