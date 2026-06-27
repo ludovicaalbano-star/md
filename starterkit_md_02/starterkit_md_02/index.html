@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto Esame - Interactive Canvas</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+            background-color: #1a1a1a;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: white;
+        }
+        
+        #ui-layer {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            pointer-events: none;
+        }
+        h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
+        p { margin-top: 10px; color: #aaaaaa; }
+    </style>
+</head>
+<body>
+
+    <div id="ui-layer">
+        <h1>Esplorazione Visiva</h1>
+        <p>Muovi il mouse per dipingere. <br>Tieni premuto il click per cambiare forma.</p>
+    </div>
+
+    <script>
+        let dimensioneForma = 40;
+        let opacitaScia = 20;
+
+        // SETUP: Eseguito una sola volta all'avvio
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            background(26);
+            noStroke();
+        }
+
+        // DRAW: Eseguito in loop 60 volte al secondo
+        function draw() {
+            // effetto scia
+            fill(26, 26, 26, opacitaScia);
+            rect(0, 0, width, height);
+
+            // colori dinamici
+            let rosso = map(mouseX, 0, width, 50, 255);
+            let verde = map(mouseY, 0, height, 50, 255);
+            let blu = 180; 
+
+            fill(rosso, verde, blu);
+
+            // disegno interattivo
+            if (mouseIsPressed) {
+                rectMode(CENTER); // Centra il rettangolo sul mouse
+                rect(mouseX, mouseY, dimensioneForma, dimensioneForma);
+            } else {
+                circle(mouseX, mouseY, dimensioneForma);
+            }
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+            background(26);
+        }
+    </script>
+</body>
+</html>
