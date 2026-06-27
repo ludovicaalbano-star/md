@@ -1,25 +1,89 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD – Esercitazioni</title>
+    <title>Indice Progetti</title>
+    <style>
+        :root {
+            --sfondo: #fafafa;
+            --testo: #1a1a1a;
+            --accento: #ff5e3a;
+        }
 
-    <link rel="stylesheet" href="../vendor/reset.css">
-    <link rel="stylesheet" href="../style.css">
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--sfondo);
+            color: var(--testo);
+        }
+
+        .indice-container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            color: #888;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        li a {
+            text-decoration: none;
+            color: var(--testo);
+            font-size: 2rem;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accento);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out; 
+        }
+
+        li a:hover {
+            color: var(--accento);
+        }
+
+        li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1>Multimedia Design</h1>
-        
-    </header>
 
-    <main>
-        <nav>
-            <ul class="menu">
-                <h2>Esercitazioni</h2>
-                <li>
+    <div class="indice-container">
+        <h1>Indice dei Lavori</h1>
+        <ul>
+               <li>
                     <a href="project/portfolio/index.html">Portfolio</a>
                 </li>
                 <li>
@@ -28,8 +92,11 @@
                 <li>
                     <a href="project/collage/index.html">Collage</a>
                 </li>
-            </ul>
-        </nav>
-    </main>
+                <li>
+                    <a href="starterkit_md_02\starterkit_md_02\index.html">Libreria</a>
+                </li>
+        </ul>
+    </div>
+
 </body>
 </html>
