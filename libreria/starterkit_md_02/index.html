@@ -12,10 +12,9 @@
 <body>
 
     <div id="ui-layer">
-        <h1>Ink Efficiency Challenge</h1>
+        <h1>Ink Challenge</h1>
         <p>
-            Usa la scia sottile per mirare.<br>
-            Tieni premuto il click per <strong>stampare segni permanenti</strong>.<br>
+            Tieni premuto il click per disegnare<br>
             <span class="evidenziato">Attenzione al consumo di inchiostro!</span>
         </p>
 
@@ -39,7 +38,7 @@
                 </div>
             </div>
             
-            <button id="btn-conferma" onclick="livelloSuperato()">Fatto! Invia Disegno</button>
+            <button id="btn-conferma" onclick="livelloSuperato()">Invia Disegno!</button>
         </div>
     </div>
 
@@ -59,9 +58,9 @@
         }
 
         function draw() {
-            background(26); // Sfondo grigio scuro fisso a ogni frame
+            background(26);
 
-            // 1. RENDERIZZA I TRATTI PERMANENTI SALVATI
+
             for (let i = 0; i < puntiPermanenti.length; i++) {
                 let p = puntiPermanenti[i];
                 fill(p.r, p.g, p.b);
@@ -70,17 +69,14 @@
 
             if (!giocoAttivo) return;
 
-            // 2. LOGICA CINETICA DEL PENNELLO
             let velocita = dist(mouseX, mouseY, pmouseX, pmouseY);
             let dimensioneDinamica = map(velocita, 0, 100, 55, 8);
             dimensioneDinamica = constrain(dimensioneDinamica, 8, 55);
 
-            // Cromatismo generativo basato su posizione e movimento
             let rosso = map(velocita, 0, 80, 70, 255);
             let verde = map(mouseX, 0, width, 100, 220);
             let blu = map(mouseY, 0, height, 150, 255);
 
-            // 3. GESTIONE INPUT E CONSUMO INCHIOSTRO
             if (mouseIsPressed && inchiostro > 0) {
                 puntiPermanenti.push({
                     x: mouseX,
@@ -91,19 +87,16 @@
                     b: blu
                 });
 
-                // Costo proporzionale al diametro del tratto
                 let costoInchiostro = map(dimensioneDinamica, 8, 55, 0.1, 0.7);
                 inchiostro -= costoInchiostro;
                 inchiostro = max(inchiostro, 0);
                 
-                // Aggiorna l'elemento grafico della barra
                 document.getElementById("ink-bar").style.width = inchiostro + "%";
 
                 if (inchiostro <= 0) {
                     gameOver();
                 }
             } else {
-                // Scia/Mirino temporaneo da 5px se l'utente si sposta senza cliccare
                 fill(rosso, verde, blu, 180);
                 circle(mouseX, mouseY, 5); 
             }
@@ -112,7 +105,6 @@
         function livelloSuperato() {
             if (!giocoAttivo) return;
 
-            // Calcolo punteggio basato sull'efficienza di risorse risparmiate
             let puntiGuadagnati = Math.round(inchiostro * 15);
             punteggioTotale += puntiGuadagnati;
             document.getElementById("score").innerHTML = punteggioTotale;
@@ -135,7 +127,7 @@
 
         function gameOver() {
             giocoAttivo = false;
-            document.getElementById("parola").innerHTML = "OUT OF INK!";
+            document.getElementById("parola").innerHTML = "INCHIOSTRO FINITO!";
             document.getElementById("parola").style.color = "#ff5555";
             document.getElementById("ink-bar").style.background = "#ff5555";
             document.getElementById("btn-conferma").disabled = true;
