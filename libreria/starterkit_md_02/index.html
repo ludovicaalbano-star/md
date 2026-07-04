@@ -3,139 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ink Efficiency Challenge</title>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-    
     <link rel="stylesheet" href="style.css">
+    <title>Progetto Esame - Interactive Canvas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="script.js"></script>
+    
+
 </head>
 <body>
 
     <div id="ui-layer">
-        <h1>Ink Challenge</h1>
-        <p>
-            Tieni premuto il click per disegnare<br>
-            <span class="evidenziato">Attenzione al consumo di inchiostro!</span>
-        </p>
-
-        <div id="game-panel">
-            <div class="label">Disegna con meno tratti possibili:</div>
-            <div id="parola" class="parola-target">---</div>
-            
-            <div class="label">Serbatoio Inchiostro</div>
-            <div class="ink-bar-container">
-                <div id="ink-bar"></div>
-            </div>
-
-            <div class="stats-container">
-                <div>
-                    <div class="label">Punteggio</div>
-                    <div id="score" class="stat-box">0</div>
-                </div>
-                <div>
-                    <div class="label">Livello</div>
-                    <div id="livello" class="stat-box rosa">1</div>
-                </div>
-            </div>
-            
-            <button id="btn-conferma" onclick="livelloSuperato()">Invia Disegno!</button>
-        </div>
+        <h1>Esplorazione Visiva</h1>
+        <p>Trascina tenendo premuto il mouse per dipingere vortici d'acqua persistenti. <br>Premi la tastiera mentre disegni per usare i quadrati.</p>
+        <button class="btn-salva" onclick="salvaDisegno()">Salva Capolavoro</button>
     </div>
 
-    <script>
-        const dizionario = ["ALBERO", "CHITARRA", "OCCHIALI", "GATTO", "CASA", "TORTA", "SOLE", "TRENO", "FORCHETTA", "STRELLA", "FIORE", "CHIAVE", "LAMPADINA", "OCCHIO", "NUVOLA", "FUNGO"];
-        
-        let puntiPermanenti = []; 
-        let inchiostro = 100;      
-        let punteggioTotale = 0;
-        let livelloAttuale = 1;
-        let giocoAttivo = true;
-
-        function setup() {
-            createCanvas(windowWidth, windowHeight);
-            noStroke();
-            nuovoRound();
-        }
-
-        function draw() {
-            background(26);
-
-
-            for (let i = 0; i < puntiPermanenti.length; i++) {
-                let p = puntiPermanenti[i];
-                fill(p.r, p.g, p.b);
-                circle(p.x, p.y, p.d);
-            }
-
-            if (!giocoAttivo) return;
-
-            let velocita = dist(mouseX, mouseY, pmouseX, pmouseY);
-            let dimensioneDinamica = map(velocita, 0, 100, 55, 8);
-            dimensioneDinamica = constrain(dimensioneDinamica, 8, 55);
-
-            let rosso = map(velocita, 0, 80, 70, 255);
-            let verde = map(mouseX, 0, width, 100, 220);
-            let blu = map(mouseY, 0, height, 150, 255);
-
-            if (mouseIsPressed && inchiostro > 0) {
-                puntiPermanenti.push({
-                    x: mouseX,
-                    y: mouseY,
-                    d: dimensioneDinamica,
-                    r: rosso,
-                    g: verde,
-                    b: blu
-                });
-
-                let costoInchiostro = map(dimensioneDinamica, 8, 55, 0.1, 0.7);
-                inchiostro -= costoInchiostro;
-                inchiostro = max(inchiostro, 0);
-                
-                document.getElementById("ink-bar").style.width = inchiostro + "%";
-
-                if (inchiostro <= 0) {
-                    gameOver();
-                }
-            } else {
-                fill(rosso, verde, blu, 180);
-                circle(mouseX, mouseY, 5); 
-            }
-        }
-
-        function livelloSuperato() {
-            if (!giocoAttivo) return;
-
-            let puntiGuadagnati = Math.round(inchiostro * 15);
-            punteggioTotale += puntiGuadagnati;
-            document.getElementById("score").innerHTML = punteggioTotale;
-
-            livelloAttuale++;
-            document.getElementById("livello").innerHTML = livelloAttuale;
-
-            nuovoRound();
-        }
-
-        function nuovoRound() {
-            puntiPermanenti = []; 
-            inchiostro = 100;      
-            document.getElementById("ink-bar").style.width = "100%";
-            document.getElementById("ink-bar").style.background = "linear-gradient(90deg, #00bcd4, #2196f3)";
-
-            let parolaCasuale = random(dizionario);
-            document.getElementById("parola").innerHTML = parolaCasuale;
-        }
-
-        function gameOver() {
-            giocoAttivo = false;
-            document.getElementById("parola").innerHTML = "INCHIOSTRO FINITO!";
-            document.getElementById("parola").style.color = "#ff5555";
-            document.getElementById("ink-bar").style.background = "#ff5555";
-            document.getElementById("btn-conferma").disabled = true;
-        }
-
-        function windowResized() {
-            resizeCanvas(windowWidth, windowHeight);
-        }
-    </script>
 </body>
 </html>
