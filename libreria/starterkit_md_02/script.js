@@ -2,14 +2,12 @@
 
         function setup() {
             createCanvas(windowWidth, windowHeight);
-            background(26); // Disegna lo sfondo grigio scuro UNA sola volta all'inizio
+            background(26);
             noStroke();     
         }
 
         function draw() {
-            // RIMOSSO il rettangolo semitrasparente continuo dal draw().
-            // Ora lo schermo non si cancella più da solo.
-
+    
             if (mouseIsPressed) {
                 let rosso = map(mouseX, 0, width, 50, 255);
                 let verde = map(mouseY, 0, height, 50, 255);
@@ -28,7 +26,7 @@
 
         function windowResized() {
             resizeCanvas(windowWidth, windowHeight);
-            background(26); // Ripulisce e reinstaura lo sfondo se ridimensioni la finestra
+            background(26);
         }
 
         function salvaDisegno() {
