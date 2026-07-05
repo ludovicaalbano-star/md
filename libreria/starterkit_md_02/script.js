@@ -1,11 +1,13 @@
         let dimensioneForma = 40;
 
+        /* TELA DA DISEGNI */
         function setup() {
             createCanvas(windowWidth, windowHeight);
             background(26);
             noStroke();     
         }
 
+        /* SCIA DI COLORI */
         function draw() {
     
             if (mouseIsPressed) {
@@ -24,11 +26,13 @@
             }
         }
 
+        /* ADATTAMENTO DESKTOP */
         function windowResized() {
             resizeCanvas(windowWidth, windowHeight);
             background(26);
         }
 
+        /* SALVATAGGIO TELA*/
         function salvaDisegno() {
             saveCanvas('disegno', 'jpg');
         }

@@ -1,4 +1,5 @@
 body {
+        /* SFONDO */
             margin: 0;
             padding: 0;
             overflow: hidden; 
@@ -7,6 +8,7 @@ body {
             color: white;
         }
         
+        /* TESTO */
         #ui-layer {
             position: absolute;
             top: 30px;
@@ -19,6 +21,7 @@ body {
         h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
         p { margin-top: 10px; color: #aaaaaa; }
 
+        /* PULSANTE SALVA */
         .btn-salva {
             margin-top: 15px;
             padding: 10px 20px;
